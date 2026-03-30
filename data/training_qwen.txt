@@ -1,0 +1,773 @@
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.1
+Type: Single IP
+Goal: Complete security assessment<|im_end|>
+<|im_start|>assistant
+Workflow: port_scanning -> service_detection -> os_detection -> vulnerability_scan
+Commands:
+1. nmap -T4 -F 192.168.1.1
+2. nmap -sV -p 22,80,443,3306 192.168.1.1
+3. nmap -O 192.168.1.1
+4. nmap --script=vuln -sV -p 22,80,443,3306 192.168.1.1<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.10.10.10
+Type: Single IP
+Goal: Complete security assessment<|im_end|>
+<|im_start|>assistant
+Workflow: port_scanning -> service_detection -> os_detection -> vulnerability_scan
+Commands:
+1. nmap -T4 -F 10.10.10.10
+2. nmap -sV -p 22,80,443,3306 10.10.10.10
+3. nmap -O 10.10.10.10
+4. nmap --script=vuln -sV -p 22,80,443,3306 10.10.10.10<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.0.0.0/24
+Type: CIDR Range
+Goal: Network reconnaissance<|im_end|>
+<|im_start|>assistant
+Workflow: host_discovery -> port_scanning -> service_detection -> vulnerability_scan
+Commands:
+1. nmap -sn 10.0.0.0/24
+2. nmap -T4 -F 10.0.0.1,10.0.0.5,10.0.0.10
+3. nmap -sV -p 22,80,443 10.0.0.1,10.0.0.5,10.0.0.10
+4. nmap --script=vuln -sV 10.0.0.1,10.0.0.5,10.0.0.10<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.0.0.0/24
+Type: CIDR Range
+Goal: Network reconnaissance<|im_end|>
+<|im_start|>assistant
+Workflow: host_discovery -> port_scanning -> service_detection -> vulnerability_scan
+Commands:
+1. nmap -sn 10.0.0.0/24
+2. nmap -T4 -F 192.168.50.50,10.0.0.5,192.168.50.500
+3. nmap -sV -p 22,80,443 192.168.50.50,10.0.0.5,192.168.50.500
+4. nmap --script=vuln -sV 192.168.50.50,10.0.0.5,192.168.50.500<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: example.com
+Type: Domain name
+Goal: Web server assessment<|im_end|>
+<|im_start|>assistant
+Workflow: port_scanning -> service_detection -> web_enumeration -> vulnerability_scan
+Commands:
+1. nmap -T4 -F example.com
+2. nmap -sV -p 80,443 example.com
+3. nmap -p 80 --script=http-enum,http-title,http-headers,http-waf-detect example.com
+4. nmap -p 443 --script=ssl-cert,ssl-enum-ciphers example.com
+5. nmap --script=vuln -sV -p 80,443 example.com<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 172.16.0.0/16
+Phase: host_discovery
+Previous results: None<|im_end|>
+<|im_start|>assistant
+nmap -sn 172.16.0.0/16<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.100.0/24
+Phase: host_discovery
+Context: ICMP may be blocked by firewall<|im_end|>
+<|im_start|>assistant
+nmap -sn -PE -PP -PS80,443 -PA3389 192.168.100.0/24<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.1
+Phase: port_scanning
+Previous: Host is up<|im_end|>
+<|im_start|>assistant
+nmap -T4 -F 192.168.1.1<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.10.10.10
+Phase: port_scanning
+Previous: Host is up<|im_end|>
+<|im_start|>assistant
+nmap -T4 -F 10.10.10.10<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.10.10.5
+Phase: port_scanning
+Context: Need full port coverage<|im_end|>
+<|im_start|>assistant
+nmap -p- --open -T4 10.10.10.5<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 172.20.0.50
+Phase: port_scanning
+Context: Need full port coverage<|im_end|>
+<|im_start|>assistant
+nmap -p- --open -T4 172.20.0.50<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.10
+Phase: service_detection
+Open ports: 22,80,443,3306,8080<|im_end|>
+<|im_start|>assistant
+nmap -sV -p 22,80,443,3306,8080 192.168.1.10<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.10.10.100
+Phase: service_detection
+Open ports: 22,80,443,3306,8080<|im_end|>
+<|im_start|>assistant
+nmap -sV -p 22,80,443,3306,8080 10.10.10.100<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.1
+Phase: os_detection
+Services: ssh,http,mysql<|im_end|>
+<|im_start|>assistant
+nmap -O 192.168.1.1<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.10.10.10
+Phase: os_detection
+Services: ssh,http,mysql<|im_end|>
+<|im_start|>assistant
+nmap -O 10.10.10.10<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.1
+Phase: vulnerability_scan
+Open ports: 22,80,443<|im_end|>
+<|im_start|>assistant
+nmap --script=vuln -sV -p 22,80,443 192.168.1.1<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.10.10.10
+Phase: vulnerability_scan
+Open ports: 22,80,443<|im_end|>
+<|im_start|>assistant
+nmap --script=vuln -sV -p 22,80,443 10.10.10.10<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.5
+Phase: web_enumeration
+Service: http on port 80<|im_end|>
+<|im_start|>assistant
+nmap -p 80 --script=http-enum,http-title,http-headers,http-methods,http-robots.txt 192.168.1.5<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.5
+Phase: ssl_enumeration
+Service: https on port 443<|im_end|>
+<|im_start|>assistant
+nmap -p 443 --script=ssl-cert,ssl-enum-ciphers,ssl-heartbleed,ssl-poodle 192.168.1.5<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.20
+Phase: smb_enumeration
+Service: smb on port 445<|im_end|>
+<|im_start|>assistant
+nmap -p 445 --script=smb-enum-shares,smb-os-discovery,smb-security-mode,smb-vuln-ms17-010 192.168.1.20<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.100
+Phase: ssh_enumeration
+Service: ssh on port 22<|im_end|>
+<|im_start|>assistant
+nmap -p 22 --script=ssh-hostkey,ssh-auth-methods,ssh2-enum-algos 192.168.1.100<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.10.10.1000
+Phase: ssh_enumeration
+Service: ssh on port 22<|im_end|>
+<|im_start|>assistant
+nmap -p 22 --script=ssh-hostkey,ssh-auth-methods,ssh2-enum-algos 10.10.10.1000<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.50
+Phase: ftp_enumeration
+Service: ftp on port 21<|im_end|>
+<|im_start|>assistant
+nmap -p 21 --script=ftp-anon,ftp-syst,ftp-vsftpd-backdoor 192.168.1.50<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.25
+Phase: mysql_enumeration
+Service: mysql on port 3306<|im_end|>
+<|im_start|>assistant
+nmap -p 3306 --script=mysql-enum,mysql-info,mysql-empty-password 192.168.1.25<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.30
+Phase: dns_enumeration
+Service: dns on port 53<|im_end|>
+<|im_start|>assistant
+nmap -p 53 --script=dns-zone-transfer,dns-service-discovery 192.168.1.30<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.2.0/24
+Workflow: Execute all phases in order<|im_end|>
+<|im_start|>assistant
+Phase 1 - Host Discovery:
+nmap -sn 192.168.2.0/24
+
+Phase 2 - Port Scanning (per host):
+nmap -T4 -F 192.168.2.1,192.168.2.5,192.168.2.10
+
+Phase 3 - Service Detection:
+nmap -sV -p 22,80,443,3306 192.168.2.1,192.168.2.5,192.168.2.10
+
+Phase 4 - Vulnerability Scan:
+nmap --script=vuln -sV 192.168.2.1,192.168.2.5,192.168.2.10<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.20.30.0/24
+Workflow: Execute all phases in order<|im_end|>
+<|im_start|>assistant
+Phase 1 - Host Discovery:
+nmap -sn 10.20.30.0/24
+
+Phase 2 - Port Scanning (per host):
+nmap -T4 -F 192.168.2.1,192.168.2.5,192.168.2.10
+
+Phase 3 - Service Detection:
+nmap -sV -p 22,80,443,3306 192.168.2.1,192.168.2.5,192.168.2.10
+
+Phase 4 - Vulnerability Scan:
+nmap --script=vuln -sV 192.168.2.1,192.168.2.5,192.168.2.10<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: webapp.example.com
+Goal: Web application penetration test<|im_end|>
+<|im_start|>assistant
+Phase 1 - Port Scan:
+nmap -T4 -F webapp.example.com
+
+Phase 2 - Service Detection:
+nmap -sV -p 80,443,8080,8443 webapp.example.com
+
+Phase 3 - Web Enumeration:
+nmap -p 80 --script=http-enum,http-title,http-headers,http-methods,http-robots.txt webapp.example.com
+nmap -p 443 --script=http-enum,http-title,http-headers,ssl-cert,ssl-enum-ciphers webapp.example.com
+
+Phase 4 - Vulnerability Scan:
+nmap --script=http-sql-injection,http-xssed,http-csrf,http-waf-detect -p 80,443 webapp.example.com<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.10.5.20
+Goal: Database server security assessment<|im_end|>
+<|im_start|>assistant
+Phase 1 - Port Scan:
+nmap -T4 -F 10.10.5.20
+
+Phase 2 - Service Detection:
+nmap -sV -p 3306,5432,1433,27017 10.10.5.20
+
+Phase 3 - Database Enumeration:
+nmap -p 3306 --script=mysql-enum,mysql-info,mysql-empty-password,mysql-dump-hashes 10.10.5.20
+nmap -p 5432 --script=pgsql-brute 10.10.5.20
+
+Phase 4 - Vulnerability Scan:
+nmap --script=vuln -sV -p 3306,5432 10.10.5.20<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.50.1
+Context: Need to avoid detection
+Goal: Stealth assessment<|im_end|>
+<|im_start|>assistant
+Phase 1 - Stealth Host Discovery:
+nmap -sn -Pn 192.168.50.1
+
+Phase 2 - Stealth Port Scan:
+sudo nmap -sS -T0 --scan-delay 1s 192.168.50.1
+
+Phase 3 - Stealth Service Detection:
+nmap -sS -T1 192.168.50.1
+
+Phase 4 - Safe Script Scan:
+nmap --script=safe -sV 192.168.50.1<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Command: nmap -O 192.168.1.1
+Result: requires root privileges
+Action needed: Provide alternative<|im_end|>
+<|im_start|>assistant
+Alternative Command:
+nmap -A 192.168.1.1<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Command: nmap -O 10.10.10.10
+Result: requires root privileges
+Action needed: Provide alternative<|im_end|>
+<|im_start|>assistant
+Alternative Command:
+nmap -A 10.10.10.10<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Command: nmap -T4 -F 192.168.1.1
+Result: Only 1 port found (unusual)
+Action needed: Comprehensive scan<|im_end|>
+<|im_start|>assistant
+Fallback Command:
+nmap -p- --open -T4 192.168.1.1<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Command: nmap -T4 -F 10.10.10.10
+Result: Only 1 port found (unusual)
+Action needed: Comprehensive scan<|im_end|>
+<|im_start|>assistant
+Fallback Command:
+nmap -p- --open -T4 10.10.10.10<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Targets: 192.168.1.1,192.168.1.5,192.168.1.10
+Goal: Scan multiple hosts efficiently<|im_end|>
+<|im_start|>assistant
+Phase 1 - Combined Port Scan:
+nmap -T4 -F 192.168.1.1,192.168.1.5,192.168.1.10
+
+Phase 2 - Combined Service Detection:
+nmap -sV -p 22,80,443,3306 192.168.1.1,192.168.1.5,192.168.1.10
+
+Phase 3 - Individual OS Detection:
+nmap -O 192.168.1.1
+nmap -O 192.168.1.5
+nmap -O 192.168.1.10
+
+Phase 4 - Combined Vulnerability Scan:
+nmap --script=vuln -sV 192.168.1.1,192.168.1.5,192.168.1.10<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Targets: 10.10.10.10,192.168.1.5,10.10.10.100
+Goal: Scan multiple hosts efficiently<|im_end|>
+<|im_start|>assistant
+Phase 1 - Combined Port Scan:
+nmap -T4 -F 10.10.10.10,192.168.1.5,10.10.10.100
+
+Phase 2 - Combined Service Detection:
+nmap -sV -p 22,80,443,3306 10.10.10.10,192.168.1.5,10.10.10.100
+
+Phase 3 - Individual OS Detection:
+nmap -O 10.10.10.10
+nmap -O 192.168.1.5
+nmap -O 10.10.10.100
+
+Phase 4 - Combined Vulnerability Scan:
+nmap --script=vuln -sV 10.10.10.10,192.168.1.5,10.10.10.100<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.10.10.0/24
+Goal: AD enumeration<|im_end|>
+<|im_start|>assistant
+Phase 1 - Host Discovery:
+nmap -sn 10.10.10.0/24
+
+Phase 2 - AD Port Scan:
+nmap -T4 -p 88,389,445,464,636,3268,3269,9389 10.10.10.1,10.10.10.2,10.10.10.3
+
+Phase 3 - AD Enumeration:
+nmap -p 389 --script=ldap-search 10.10.10.1
+nmap -p 445 --script=smb-enum-users,smb-enum-shares 10.10.10.1
+
+Phase 4 - Vulnerability Check:
+nmap --script=vuln -sV -p 88,389,445 10.10.10.1<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: k8s-cluster.local
+Goal: Kubernetes security assessment<|im_end|>
+<|im_start|>assistant
+Phase 1 - Port Scan:
+nmap -T4 -F k8s-cluster.local
+
+Phase 2 - Service Detection:
+nmap -sV -p 6443,2379,10250,10255,8080 k8s-cluster.local
+
+Phase 3 - Kubernetes Enumeration:
+nmap -p 6443 --script=kubernetes-version k8s-cluster.local
+nmap -p 10250 --script=docker-version k8s-cluster.local
+
+Phase 4 - Vulnerability Scan:
+nmap --script=vuln -sV -p 6443,2379,10250 k8s-cluster.local<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 172.20.0.50
+Previous scans: None
+Goal: Complete assessment<|im_end|>
+<|im_start|>assistant
+=== SCAN WORKFLOW ===
+
+[Phase 1] Host Discovery:
+Command: nmap -sn -PR 172.20.0.50
+Expected: Confirm host is up
+
+[Phase 2] Port Scanning:
+Command: nmap -T4 -F 172.20.0.50
+Expected: List of open ports
+
+[Phase 3] Service Detection:
+Command: nmap -sV -p [OPEN_PORTS] 172.20.0.50
+Expected: Service versions
+
+[Phase 4] OS Detection:
+Command: nmap -O 172.20.0.50
+Expected: Operating system
+
+[Phase 5] Vulnerability Scan:
+Command: nmap --script=vuln -sV -p [OPEN_PORTS] 172.20.0.50
+Expected: CVE findings
+
+[Phase 6] Service-Specific:
+Based on findings, run targeted scripts<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Current Phase: service_detection
+Results: 22/ssh,80/http,443/https,3306/mysql
+Target: 192.168.1.50<|im_end|>
+<|im_start|>assistant
+Next Phase: vulnerability_scan
+Command: nmap --script=vuln -sV -p 22,80,443,3306 192.168.1.50
+
+After vulnerability scan, recommend:
+- For port 80/443: nmap -p 80,443 --script=http-enum,http-waf-detect 192.168.1.50
+- For port 3306: nmap -p 3306 --script=mysql-enum 192.168.1.50
+- For port 22: nmap -p 22 --script=ssh-hostkey 192.168.1.50<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Vulnerability scan results:
+- CVE-2021-44228 (Log4Shell) on port 8080
+- CVE-2022-22965 (Spring4Shell) on port 443
+- Outdated OpenSSH on port 22
+Target: 10.0.0.5<|im_end|>
+<|im_start|>assistant
+Recommendations:
+1. CRITICAL: Exploit Log4Shell
+   Command: nmap -p 8080 --script=http-shellshock 10.0.0.5
+
+2. HIGH: Verify Spring4Shell
+   Command: nmap -p 443 --script=http-vuln-cve2022-22965 10.0.0.5
+
+3. MEDIUM: Service enumeration for exploitation path
+   Command: nmap -p 22,80,443,3306,8080 -sV -sC 10.0.0.5
+
+4. Post-exploitation:
+   If foothold obtained, enumerate internal services<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.10.0/24
+Goal: Full TCP+UDP assessment<|im_end|>
+<|im_start|>assistant
+=== TCP SCAN ===
+Phase 1: nmap -sn 192.168.10.0/24
+Phase 2: nmap -T4 -F 192.168.10.1-20
+Phase 3: nmap -sV -p 22,80,443,3306 192.168.10.1-20
+Phase 4: nmap --script=vuln -sV 192.168.10.1-20
+
+=== UDP SCAN ===
+Phase 5: sudo nmap -sU --top-ports 20 -T4 192.168.10.1-20
+Phase 6: For DNS (53): nmap -sU -p 53 --script=dns-zone-transfer 192.168.10.1-20
+Phase 7: For SNMP (161): nmap -sU -p 161 --script=snmp-info,snmp-brute 192.168.10.1-20<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.100
+Context: Already have low-privilege access
+Goal: Find privilege escalation vectors<|im_end|>
+<|im_start|>assistant
+Phase 1 - Service Enumeration:
+nmap -sV --all-ports 192.168.1.100
+
+Phase 2 - SMB Enumeration:
+nmap -p 445 --script=smb-enum-users,smb-enum-shares,smb-enum-domains 192.168.1.100
+
+Phase 3 - NFS Enumeration:
+nmap -p 2049 --script=nfs-ls,nfs-showmount 192.168.1.100
+
+Phase 4 - LDAP Enum:
+nmap -p 389 --script=ldap-search 192.168.1.100
+
+Phase 5 - Check for stored credentials:
+nmap -p 3306,5432,1433 --script=mysql-empty-password 192.168.1.100<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.10.10.1000
+Context: Already have low-privilege access
+Goal: Find privilege escalation vectors<|im_end|>
+<|im_start|>assistant
+Phase 1 - Service Enumeration:
+nmap -sV --all-ports 10.10.10.1000
+
+Phase 2 - SMB Enumeration:
+nmap -p 445 --script=smb-enum-users,smb-enum-shares,smb-enum-domains 10.10.10.1000
+
+Phase 3 - NFS Enumeration:
+nmap -p 2049 --script=nfs-ls,nfs-showmount 10.10.10.1000
+
+Phase 4 - LDAP Enum:
+nmap -p 389 --script=ldap-search 10.10.10.1000
+
+Phase 5 - Check for stored credentials:
+nmap -p 3306,5432,1433 --script=mysql-empty-password 10.10.10.1000<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: testapp.example.com
+Goal: Web application security test<|im_end|>
+<|im_start|>assistant
+=== INFORMATION GATHERING ===
+nmap -T4 -F testapp.example.com
+nmap -sV -p 80,443,8080,8443 testapp.example.com
+nmap -p 80,443 --script=http-enum,http-title,http-headers testapp.example.com
+
+=== SQL INJECTION TEST ===
+nmap -p 80 --script=http-sql-injection testapp.example.com
+
+=== XSS TEST ===
+nmap -p 80 --script=http-xssed testapp.example.com
+
+=== CSRF TEST ===
+nmap -p 80 --script=http-csrf testapp.example.com
+
+=== IDOR TEST ===
+nmap -p 80 --script=http-unsafe-output-escaping testapp.example.com
+
+=== SENSITIVE DATA EXPOSURE ===
+nmap -p 80 --script=http-backup-finder,http-config-backup testapp.example.com<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Current Host: 192.168.1.50
+Target Network: 192.168.2.0/24
+Goal: Find pivot points<|im_end|>
+<|im_start|>assistant
+=== LATERAL MOVEMENT SCAN ===
+
+Phase 1 - Network Discovery:
+nmap -sn 192.168.2.0/24
+
+Phase 2 - SMB Enumeration (common lateral vector):
+nmap -p 445 --script=smb-enum-shares,smb-enum-users,smb-os-discovery 192.168.2.0/24
+
+Phase 3 - WinRM/PSRemoting:
+nmap -p 5985,5986 --script=ms-sql-info,http-ntlm-info 192.168.2.0/24
+
+Phase 4 - SSH Keys:
+nmap -p 22 --script=ssh-hostkey,ssh-auth-methods 192.168.2.0/24
+
+Phase 5 - RDP:
+nmap -p 3389 --script=rdp-enum-encryption 192.168.2.0/24<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Current Host: 192.168.1.50
+Target Network: 10.20.30.0/24
+Goal: Find pivot points<|im_end|>
+<|im_start|>assistant
+=== LATERAL MOVEMENT SCAN ===
+
+Phase 1 - Network Discovery:
+nmap -sn 10.20.30.0/24
+
+Phase 2 - SMB Enumeration (common lateral vector):
+nmap -p 445 --script=smb-enum-shares,smb-enum-users,smb-os-discovery 10.20.30.0/24
+
+Phase 3 - WinRM/PSRemoting:
+nmap -p 5985,5986 --script=ms-sql-info,http-ntlm-info 10.20.30.0/24
+
+Phase 4 - SSH Keys:
+nmap -p 22 --script=ssh-hostkey,ssh-auth-methods 10.20.30.0/24
+
+Phase 5 - RDP:
+nmap -p 3389 --script=rdp-enum-encryption 10.20.30.0/24<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Scope: 192.168.1.0/24
+Engagement: Full penetration test
+Time limit: Comprehensive scan<|im_end|>
+<|im_start|>assistant
+=== STAGE 1: RECONNAISSANCE ===
+nmap -sn 192.168.1.0/24
+
+=== STAGE 2: PORT SCANNING ===
+for host in discovered_hosts:
+  nmap -p- --open -T4 $host
+
+=== STAGE 3: SERVICE DETECTION ===
+for host in discovered_hosts:
+  nmap -sV -p all_open_ports $host
+
+=== STAGE 4: OS DETECTION ===
+for host in discovered_hosts:
+  nmap -O $host
+
+=== STAGE 5: VULNERABILITY ASSESSMENT ===
+for host in discovered_hosts:
+  nmap --script=vuln -sV $host
+
+=== STAGE 6: SERVICE-SPECIFIC ===
+for host in discovered_hosts:
+  nmap -p 80,443 --script=http-enum,http-vuln* $host
+  nmap -p 445 --script=smb-vuln* $host
+  nmap -p 22 --script=ssh-hostkey $host<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Scope: 172.16.0.0/16
+Engagement: Full penetration test
+Time limit: Comprehensive scan<|im_end|>
+<|im_start|>assistant
+=== STAGE 1: RECONNAISSANCE ===
+nmap -sn 172.16.0.0/16
+
+=== STAGE 2: PORT SCANNING ===
+for host in discovered_hosts:
+  nmap -p- --open -T4 $host
+
+=== STAGE 3: SERVICE DETECTION ===
+for host in discovered_hosts:
+  nmap -sV -p all_open_ports $host
+
+=== STAGE 4: OS DETECTION ===
+for host in discovered_hosts:
+  nmap -O $host
+
+=== STAGE 5: VULNERABILITY ASSESSMENT ===
+for host in discovered_hosts:
+  nmap --script=vuln -sV $host
+
+=== STAGE 6: SERVICE-SPECIFIC ===
+for host in discovered_hosts:
+  nmap -p 80,443 --script=http-enum,http-vuln* $host
+  nmap -p 445 --script=smb-vuln* $host
+  nmap -p 22 --script=ssh-hostkey $host<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 10.10.20.30
+Known CVE: CVE-2024-21762 (FortiGate SSL VPN)
+Goal: Validate exploitability<|im_end|>
+<|im_start|>assistant
+Phase 1 - Confirm Service:
+nmap -sV -p 443 10.10.20.30
+
+Phase 2 - Check Version:
+nmap -sV --version-intensity 9 -p 443 10.10.20.30
+
+Phase 3 - Vulnerability Check:
+nmap -p 443 --script=ssl-cert,ssl-heartbleed 10.10.20.30
+
+Phase 4 - CVE Validation:
+nmap -p 443 --script=http-vuln* 10.10.20.30<|im_end|>
+<|im_start|>system
+You are an expert penetration tester AI specialized in nmap scanning. Output the nmap commands for the given scan workflow.
+<|im_end|>
+<|im_start|>user
+Target: 192.168.1.25
+Context: Already compromised, found MySQL
+Goal: Database extraction<|im_end|>
+<|im_start|>assistant
+=== DATABASE ENUMERATION ===
+
+Phase 1 - MySQL Info:
+nmap -p 3306 --script=mysql-info 192.168.1.25
+
+Phase 2 - MySQL Enumeration:
+nmap -p 3306 --script=mysql-enum 192.168.1.25
+
+Phase 3 - Hash Dump:
+nmap -p 3306 --script=mysql-dump-hashes 192.168.1.25
+
+Phase 4 - Database List:
+nmap -p 3306 --script=mysql-query,show databases 192.168.1.25
+
+Phase 5 - User Enum:
+nmap -p 3306 --script=mysql-users 192.168.1.25<|im_end|>
